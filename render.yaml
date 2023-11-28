@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: portfolioExample
+    name: portfolioBackend
     runtime: python
     plan: free
     autoDeploy: true
