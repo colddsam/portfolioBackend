@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: fastapi-example
+    name: portfolioExample
     runtime: python
     plan: free
     autoDeploy: true
