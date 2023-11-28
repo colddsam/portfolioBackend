@@ -26,7 +26,7 @@ def rootPage():
 
 @app.post("/achievements/")
 async def upload_achievements(header:str=Form(...),description: str = Form(...), image: UploadFile = File(...),url:str=Form(...)):
-    with open(f"assets/achievements/{image.filename}", "wb") as f:
+    with open(f"./assets/achievements/{image.filename}", "wb") as f:
         f.write(image.file.read())
     path=os.path.join("assets","achievements",image.filename)
     dat=str(date.today())
@@ -42,7 +42,7 @@ async def upload_achievements(header:str=Form(...),description: str = Form(...),
 
 @app.post("/projects/")
 async def upload_projects(header:str=Form(),description: str = Form(...), image: UploadFile = File(...), url: str = Form(...)):
-    with open(f"assets/projects/{image.filename}", "wb") as f:
+    with open(f"./assets/projects/{image.filename}", "wb") as f:
         f.write(image.file.read())
     path = os.path.join("assets", "projects", image.filename)
     dat = str(date.today())
@@ -58,7 +58,7 @@ async def upload_projects(header:str=Form(),description: str = Form(...), image:
 
 @app.post("/skills/")
 async def upload_skills(percentage:float=Form(...),name: str = Form(...), image: UploadFile = File(...), url: str = Form(...)):
-    with open(f"assets/skills/{image.filename}", "wb") as f:
+    with open(f"./assets/skills/{image.filename}", "wb") as f:
         f.write(image.file.read())
     path = os.path.join("assets", "skills", image.filename)
     jsonFile = await load_json()
@@ -71,7 +71,7 @@ async def upload_skills(percentage:float=Form(...),name: str = Form(...), image:
 
 @app.post("/events/")
 async def upload_events(description: str = Form(...), organization:str=Form(...),image: UploadFile = File(...),url:str=Form(...)):
-    with open(f"assets/events/{image.filename}", "wb") as f:
+    with open(f"./assets/events/{image.filename}", "wb") as f:
         f.write(image.file.read())
     path=os.path.join("assets","events",image.filename)
     dat=str(date.today())
